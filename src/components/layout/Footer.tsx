@@ -1,16 +1,18 @@
-import facebook from "../assets/icons/facebook.png"
-import twiter from "../assets/icons/twitter.png"
-import instagram from "../assets/icons/instagram.png"
+import facebook from "../../assets/icons/facebook.png"
+import twiter from "../../assets/icons/twitter.png"
+import instagram from "../../assets/icons/instagram.png"
+import '../../styles/_footer.scss'
+
 
 function Footer() {
-    return(
+    return (
         <footer className="footer">
             <div>
                 <h3>INFORMACIÓN</h3>
                 <p>REGLAMENTO</p>
                 <p>EQUIPOS MIXTOS</p>
                 <p>NOTICIAS</p>
-                <p>GALERIAS</p>                
+                <p>GALERIAS</p>
             </div>
             <div>
                 <h3>INSCRIPCIÓN</h3>
@@ -38,13 +40,13 @@ function Footer() {
             </div>
             <div>
                 <div>
-                    <img src={facebook} className="icon border pad" alt="facebook"/>                   
+                    <img src={facebook} className="icon border pad" alt="facebook" />
                 </div>
                 <div>
-                    <img src={twiter} className="icon border pad" alt="twiter"/>
+                    <img src={twiter} className="icon border pad" alt="twiter" />
                 </div>
                 <div>
-                    <img src={instagram} className="icon border pad" alt="instagram"/>
+                    <img src={instagram} className="icon border pad" alt="instagram" />
                 </div>
             </div>
         </footer>

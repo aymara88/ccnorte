@@ -1,6 +1,7 @@
-import logo from "../assets/logo.png"
-import es from "../assets/es.png"
-import gl from "../assets/gl.png"
+import logo from "../../assets/logo.png"
+import es from "../../assets/es.png"
+import gl from "../../assets/gl.png"
+import '../../styles/_navbar.scss'
 
 function Navbar() {
     return (

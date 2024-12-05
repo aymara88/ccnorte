@@ -1,0 +1,19 @@
+@use './global.scss' as vars;
+
+.footer {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    align-items: center;
+    padding-left: 10%;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    background-color: vars.$primaryColor;
+    align-items: start;
+}
+
+.pad {
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
