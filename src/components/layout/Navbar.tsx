@@ -1,28 +1,31 @@
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
+import useIsMobile from '../hooks/useIsMobile'; // Custom hook for device detection
+
 import logo from "../../assets/logo.png";
 import es from "../../assets/es.png";
 import gl from "../../assets/gl.png";
-import useIsMobile from '../hooks/useIsMobile'; // Import the custom hook
 
 interface NavbarProps {
   links?: { label: string; refName: string }[];
-  languages?: { src: string; alt: string }[];
+  languages?: { src: string; alt: string; code: string }[];
 }
 
 const Navbar: React.FC<NavbarProps> = ({
   links = [
-    { label: "EVENTOS", refName: "events" },
-    { label: "INFORMACIÓN", refName: "info" },
-    { label: "INSCRIPCIÓN", refName: "signup" },
-    { label: "RECORRIDOS", refName: "routes" },
-    { label: "RESULTADOS", refName: "results" },
-    { label: "CONTACTAR", refName: "contact" },
+    { label: "EVENTS", refName: "events" },
+    { label: "INFORMATION", refName: "info" },
+    { label: "SIGNUP", refName: "signup" },
+    { label: "ROUTES", refName: "routes" },
+    { label: "RESULTS", refName: "results" },
+    { label: "CONTACT", refName: "contact" },
   ],
   languages = [
-    { src: es, alt: "Spanish" },
-    { src: gl, alt: "Galician" },
+    { src: es, alt: 'Spanish', code: 'es' },
+    { src: gl, alt: 'Galician', code: 'gl' },
   ],
 }) => {
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile(); // Check if the device is mobile
 
@@ -38,6 +41,12 @@ const Navbar: React.FC<NavbarProps> = ({
   // Function to scroll to the top of the page
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Function to change language
+  const changeLanguage = (langCode: string) => {
+    console.log(langCode)
+    i18n.changeLanguage(langCode);
   };
 
   return (
@@ -61,6 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({
               src={language.src}
               alt={`${language.alt} Flag`}
               className="navbar-image border"
+              onClick={() => changeLanguage(language.code)}
             />
           ))}
         </div>}
@@ -71,7 +81,7 @@ const Navbar: React.FC<NavbarProps> = ({
         {links.map((link, index) => (
           <li key={index}>
             <button className="link-button" onClick={() => handleScroll(link.refName)}>
-              {link.label}
+              {t(link.label)}
             </button>
           </li>
         ))}
@@ -84,8 +94,9 @@ const Navbar: React.FC<NavbarProps> = ({
               key={index}
               src={language.src}
               alt={`${language.alt} Flag`}
-              title={language.alt}
+              title={t(language.alt)}
               className="navbar-image border"
+              onClick={() => changeLanguage(language.code)}
             />
           ))}
         </div>}
