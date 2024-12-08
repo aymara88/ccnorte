@@ -3,8 +3,6 @@ import pencil from "../../assets/icons/pencil.png"
 import book from "../../assets/icons/book.png"
 import user from "../../assets/icons/user.png"
 import chart from "../../assets/icons/bar-graph.png"
-import { FormProvider } from '../../context/FormContext';
-import MultistepForm from '../forms/MultistepForm';
 
 import FormWizardSurvey from "../forms/FormWizardSurvey"
 
@@ -25,14 +23,7 @@ function Main() {
             </section>
 
             {/* Tu código aquí :) */}
-
-            <FormProvider>
-                <MultistepForm />
-            </FormProvider>
-
-
             <FormWizardSurvey/>
-
         </main>
     )
 }

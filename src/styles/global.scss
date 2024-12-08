@@ -3,9 +3,13 @@
 /* Definición de variables */
 $primaryColor: #fad504;
 $secondaryColor: #6495ed;
+$requiredColor: #ff0000;
 $linkColor: #6495ed;
 $fontFamily: "Roboto", sans-serif;
 $fontSize: 14px;
+$darkColor: #000000;
+$darkColor90: #4f4e4e;
+$textColor: #ffffff;
 
 /* Aplicar la fuente y el tamaño por defecto */
 body {
@@ -19,6 +23,126 @@ body {
   border: 1px solid black;
 }
 
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: $primaryColor;
+}
+
+.navbar-logo .logo {
+  height: 40px;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-links li {
+  margin: 0 15px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+.navbar-images {
+  display: flex;
+}
+
+.navbar-images .navbar-image {
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .navbar-links li {
+    margin: 10px 0;
+  }
+
+  .navbar-images {
+    margin-top: 10px;
+  }
+}
+
+/* footer */
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  background-color: $primaryColor; // Primary color for the footer background
+  text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+
+  .footer-section {
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: $darkColor; // Dark color for section headings
+    }
+
+    p {
+      margin: 5px 0;
+      color: $darkColor; // Dark text for links
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $darkColor90; // White text on hover
+        //text-decoration: underline; // Add underline on hover for emphasis
+      }
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+
+      &:hover {
+        transform: scale(1.2); // Enlarge icon on hover
+        img {
+          filter: brightness(0) invert(1); // Invert icon color for contrast
+        }
+      }
+    }
+  }
+}
+
+/* hero */
 .hero {
   background-image: url("/src/assets/fondo.png");
   background-size: cover;
@@ -60,6 +184,7 @@ body {
   }
 }
 
+/* main */
 .button-section {
   display: flex;
   justify-content: center;
@@ -98,4 +223,79 @@ body {
 .link {
   color: $linkColor;
   cursor: pointer;
+}
+
+/* shared switch component */
+$switch-width: 50px;
+$switch-height: 24px;
+$switch-bg-on: $secondaryColor;
+$switch-bg-off: #ccc;
+$switch-toggle-size: 20px;
+$switch-toggle-bg: white;
+
+.switch {
+  width: $switch-width;
+  height: $switch-height;
+  border-radius: $switch-height;
+  background-color: $switch-bg-off;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &--on {
+    background-color: $switch-bg-on;
+  }
+
+  &__toggle {
+    width: $switch-toggle-size;
+    height: $switch-toggle-size;
+    border-radius: 50%;
+    background-color: $switch-toggle-bg;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    .switch--on & {
+      transform: translateX(calc($switch-width - $switch-toggle-size - 4px));
+    }
+  }
+}
+
+/* shared slider component */
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.2s;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: $secondaryColor;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: $secondaryColor;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
 }
