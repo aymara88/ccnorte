@@ -7,9 +7,11 @@ $requiredColor: #ff0000;
 $linkColor: #6495ed;
 $fontFamily: "Roboto", sans-serif;
 $fontSize: 14px;
-$darkColor: #000000;
-$darkColor90: #4f4e4e;
 $textColor: #ffffff;
+$accentColor: #000000;
+$activeColor: #4f4e4e;
+$lightBackground: #f9f9f9;
+$borderColor: #ddd;
 
 /* Aplicar la fuente y el tamaño por defecto */
 body {
@@ -26,57 +28,132 @@ body {
 /* navbar */
 .navbar {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: 10px 5%;
+  justify-content: space-between;
+  padding: 10px 2%;
   background-color: $primaryColor;
-}
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
-.navbar-logo .logo {
-  height: 40px;
-}
+  &-header {
+    display: flex;
+    align-items: center;
 
-.navbar-links {
-  display: flex;
-  list-style: none;
-}
+    .logo {
+      height: 40px;
+      cursor: pointer;
+      transition: transform 0.2s;
 
-.navbar-links li {
-  margin: 0 15px;
-}
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
 
-.navbar-links a {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-}
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 10px;
 
-.navbar-images {
-  display: flex;
-}
+      &:hover {
+        color: $accentColor;
+      }
+    }
+  }
 
-.navbar-images .navbar-image {
-  margin-left: 10px;
-}
+  &-links {
+    display: flex;
+    list-style: none;
+    flex: 2;
+    justify-content: center;
 
-@media (max-width: 768px) {
-  .navbar {
+    li {
+      margin: 0 15px;
+
+      .link-button {
+        background: none;
+        border: none;
+        color: $accentColor;
+        font-size: 16px;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $activeColor;
+        }
+
+        &:active {
+          color: $activeColor;
+        }
+      }
+    }
+  }
+
+  &-languages {
+    display: flex;
+    margin-right: 4%;
+
+    .navbar-image {
+      height: 15px;
+      margin-left: 5px;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
     flex-direction: column;
-    text-align: center;
-  }
+    align-items: flex-start;
 
-  .navbar-links {
-    flex-direction: column;
-    margin-top: 10px;
-  }
+    &-header {
+      justify-content: space-between;
+      width: 100%;
 
-  .navbar-links li {
-    margin: 10px 0;
-  }
+      .navbar-toggle {
+        display: block;
+      }
 
-  .navbar-images {
-    margin-top: 10px;
+      .logo {
+        margin: 0 auto;
+      }
+    }
+
+    &-links {
+      flex-direction: column;
+      width: 100%;
+      display: none;
+      margin: 10px 0;
+
+      li {
+        margin: 10px 0;
+
+        .link-button {
+          font-size: 18px;
+        }
+      }
+
+      &.show {
+        display: flex;
+      }
+    }
   }
+}
+
+.section {
+  padding: 100px 20px !important; // Space for the fixed navbar
+  min-height: 25vh;
+  scroll-margin-top: 80px; // Adjust according to navbar height
+  background-color: $lightBackground; // Light background for visual separation
+  border-bottom: 1px solid $borderColor; // Optional border for section separation
 }
 
 /* footer */
@@ -96,17 +173,17 @@ body {
     h3 {
       font-size: 1.2rem;
       margin-bottom: 10px;
-      color: $darkColor; // Dark color for section headings
+      color: $accentColor; // Dark color for section headings
     }
 
     p {
       margin: 5px 0;
-      color: $darkColor; // Dark text for links
+      color: $accentColor; // Dark text for links
       cursor: pointer;
       transition: color 0.3s ease;
 
       &:hover {
-        color: $darkColor90; // White text on hover
+        color: $activeColor; // White text on hover
         //text-decoration: underline; // Add underline on hover for emphasis
       }
     }

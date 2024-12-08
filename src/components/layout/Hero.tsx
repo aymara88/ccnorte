@@ -3,7 +3,7 @@ import hero from "../../assets/hero-text.png"
 function Hero() {
     return (
         <>
-            <section className="hero">
+            <section className="hero section">
                 <div className="hero-image">
                     <img src={hero} />
                 </div>
