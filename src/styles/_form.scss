@@ -1,7 +1,7 @@
 @use "./global.scss" as var;
 
-$responsive-form-width: 400px;
-$form-background: #f9f9f9;
+$responsive-form-width: 650px;
+$form-background: var.$formBackground;
 $form-border-color: #ddd;
 $form-border-radius: 8px;
 $form-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -92,7 +92,7 @@ $required-color: var.$requiredColor;
 }
 
 .summary-container {
-  max-width: 400px;
+  max-width: $responsive-form-width;
   margin: 20px auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -101,7 +101,6 @@ $required-color: var.$requiredColor;
 
   h2 {
     text-align: center;
-    //color: #333;
     margin-bottom: 20px;
   }
 

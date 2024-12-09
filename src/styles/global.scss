@@ -13,6 +13,7 @@ $accentColor: #000000;
 $activeColor: #4f4e4e;
 $lightBackground: #f9f9f9;
 $borderColor: #f5f4f4;
+$formBackground: #f9f9f9;
 
 /* Aplicar la fuente y el tamaño por defecto */
 body {
@@ -120,6 +121,19 @@ body {
 
     .selected {
       border: 1px solid #6f6f6f;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1200px) {
+    &-links {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      li {
+        .link-button {
+          font-size: 0.8rem;
+        }
+      }
     }
   }
 
@@ -245,7 +259,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 3%;
   gap: 30px;
 }
 
@@ -292,8 +306,7 @@ body {
 .info-section {
   background-color: #f9f9f9;
   border-top: 1px solid $borderColor;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin: 1% 0;
   text-align: center;
   font-weight: bold;
   padding: 20px;
@@ -314,7 +327,6 @@ body {
   cursor: pointer;
   text-decoration: underline;
 }
-
 
 /* shared switch component */
 $switch-width: 50px;
