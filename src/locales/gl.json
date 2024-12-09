@@ -1,41 +1,41 @@
 {
-    "navbar": {
-      "EVENTS": "Eventos",
-      "INFORMATION": "Información",
-      "SIGNUP": "Inscrición",
-      "ROUTES": "Tours",
-      "RESULTS": "Resultados",
-      "CONTACT": "Contacto",
-      "Spanish": "Castelán",
-      "Galician": "Galego"
-    },
-    "survey": {
-      "Personal data": "Datos personales",
-      "Satisfaction measure": "Medida de satisfacción",
-      "Comment": "Comenta",
-      "Confirmation": "Confirmación"
-    },
-    "footer": {
-      "information": "INFORMACIÓN",
-      "rules": "Reglamento",
-      "mixedTeams": "Equipos Mixtos",
-      "news": "Noticias",
-      "galleries": "Galerías",
-      "registration": "INSCRIPCIÓN",
-      "confirmAttendance": "Confirmar Asistencia",
-      "registrationRace": "Inscripción Carrera",
-      "registeredCircuit": "Inscritos Circuito",
-      "routes": "RECORRIDOS",
-      "herculesTower2024": "Torre de Hércules 23/03/2024",
-      "oza2024": "Volta a Oza 07/04/2024",
-      "sanPedro2024": "San Pedro de Visma 12/05/2024",
-      "osRosales2024": "Os Rosales 02/06/2024",
-      "matograndeXuxan2024": "Matogrande-Xuxán 15/09/2024",
-      "ventorrillo2024": "Ventorrillo 20/10/2024",
-      "novoMesoiro2024": "Novo Mesoiro 15/12/2024",
-      "results": "RESULTADOS",
-      "currentEdition": "Edición Actual",
-      "historical": "Histórico",
-      "contact": "CONTACTAR"
-    }
+  "navbar": {
+    "EVENTS": "Eventos",
+    "INFORMATION": "Información",
+    "SIGNUP": "Inscrición",
+    "ROUTES": "Tours",
+    "RESULTS": "Resultados",
+    "CONTACT": "Contacto",
+    "Spanish": "Castelán",
+    "Galician": "Galego"
+  },
+  "survey": {
+    "Personal data": "Datos personales",
+    "Satisfaction measure": "Medida de satisfacción",
+    "Comment": "Comenta",
+    "Confirmation": "Confirmación"
+  },
+  "footer": {
+    "information": "INFORMACIÓN",
+    "rules": "Regulamento",
+    "mixedTeams": "Equipos Mixtos",
+    "news": "Novas",
+    "galleries": "Galerías",
+    "registration": "INSCRICIÓN",
+    "confirmAttendance": "Confirmar Asistencia",
+    "registrationRace": "Inscrición Carreira",
+    "registeredCircuit": "Inscritos no Circuíto",
+    "routes": "PERCORRIDOS",
+    "herculesTower2024": "Torre de Hércules 23/03/2024",
+    "oza2024": "Volta a Oza 07/04/2024",
+    "sanPedro2024": "San Pedro de Visma 12/05/2024",
+    "osRosales2024": "Os Rosales 02/06/2024",
+    "matograndeXuxan2024": "Matogrande-Xuxán 15/09/2024",
+    "ventorrillo2024": "Ventorrillo 20/10/2024",
+    "novoMesoiro2024": "Novo Mesoiro 15/12/2024",
+    "results": "RESULTADOS",
+    "currentEdition": "Edición Actual",
+    "historical": "Histórico",
+    "contact": "CONTACTO"
   }
+}

@@ -1,42 +1,74 @@
 import React from 'react';
-import facebook from "../../assets/icons/facebook.png";
-import twitter from "../../assets/icons/twitter.png";
-import instagram from "../../assets/icons/instagram.png";
+import { useTranslation } from 'react-i18next';
+import facebook from '../../assets/icons/facebook.png';
+import twitter from '../../assets/icons/twitter.png';
+import instagram from '../../assets/icons/instagram.png';
+
+interface FooterSectionProps {
+  title: string;
+  items: string[];
+}
+
+const FooterSection: React.FC<FooterSectionProps> = ({ title, items }) => (
+  <div className="footer-section">
+    <h3>{title}</h3>
+    {items.map((item, index) => (
+      <p key={index}>{item}</p>
+    ))}
+  </div>
+);
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+
+  const sections = [
+    {
+      title: t('footer.information'),
+      items: [
+        t('footer.rules'),
+        t('footer.mixedTeams'),
+        t('footer.news'),
+        t('footer.galleries')
+      ],
+    },
+    {
+      title: t('footer.registration'),
+      items: [
+        t('footer.confirmAttendance'),
+        t('footer.registrationRace'),
+        t('footer.registeredCircuit')
+      ],
+    },
+    {
+      title: t('footer.routes'),
+      items: [
+        t('footer.herculesTower2024'),
+        t('footer.oza2024'),
+        t('footer.sanPedro2024'),
+        t('footer.osRosales2024'),
+        t('footer.matograndeXuxan2024'),
+        t('footer.ventorrillo2024'),
+        t('footer.novoMesoiro2024')
+      ],
+    },
+    {
+      title: t('footer.results'),
+      items: [
+        t('footer.currentEdition'),
+        t('footer.historical')
+      ],
+    },
+    {
+      title: t('footer.contact'),
+      items: [],
+    },
+  ];
+
   return (
     <footer className="footer">
-      <div className="footer-section">
-        <h3>INFORMACIÓN</h3>
-        <p>Reglamento</p>
-        <p>Equipos Mixtos</p>
-        <p>Noticias</p>
-        <p>Galerías</p>
-      </div>
-      <div className="footer-section">
-        <h3>INSCRIPCIÓN</h3>
-        <p>Confirmar Asistencia</p>
-        <p>Inscripción Carrera</p>
-        <p>Inscritos Circuito</p>
-      </div>
-      <div className="footer-section">
-        <h3>RECORRIDOS</h3>
-        <p>Torre de Hércules 23/03/2024</p>
-        <p>Volta a Oza 07/04/2024</p>
-        <p>San Pedro de Visma 12/05/2024</p>
-        <p>Os Rosales 02/06/2024</p>
-        <p>Matogrande-Xuxán 15/09/2024</p>
-        <p>Ventorrillo 20/10/2024</p>
-        <p>Novo Mesoiro 15/12/2024</p>
-      </div>
-      <div className="footer-section">
-        <h3>RESULTADOS</h3>
-        <p>Edición Actual</p>
-        <p>Histórico</p>
-      </div>
-      <div className="footer-section">
-        <h3>CONTACTAR</h3>
-      </div>
+      {sections.map((section, index) => (
+        <FooterSection key={index} title={section.title} items={section.items} />
+      ))}
       <div className="footer-section social-icons">
         <img src={facebook} alt="Facebook" title="Facebook" className="icon" />
         <img src={twitter} alt="Twitter" title="Twitter" className="icon" />
