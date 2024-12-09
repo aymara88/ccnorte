@@ -10,10 +10,38 @@
     "Galician": "Galego"
   },
   "survey": {
-    "Personal data": "Datos personales",
-    "Satisfaction measure": "Medida de satisfacción",
-    "Comment": "Comenta",
-    "Confirmation": "Confirmación"
+    "personalData": "Datos Persoais",
+    "name": "Nome",
+    "email": "Correo Electrónico",
+    "birthDate": "Data de Nacemento",
+    "satisfactionMeasure": "Medida de Satisfacción",
+    "companySatisfaction": "Satisfacción coa Organización do Evento (1-10)",
+    "workerSatisfaction": "Satisfacción co Persoal (1-10)",
+    "value": "Vale",
+    "comments": "Comentarios",
+    "participation": "¿Participarías de novo?",
+    "feedback": "¿Como podemos mellorar?",
+    "feedbackPlaceholder": "Escribe aquí o teu comentario",
+    "chars": "caracteres",
+    "confirmation": "Confirmación",
+    "summaryTitle": "Resumo de Información",
+    "notProvided": "Non proporcionado",
+    "yes": "Si",
+    "no": "Non",
+    "noComments": "Sen comentarios",
+    "error": "Debe completar os campos obrigatorios",
+    "completed": "Formulario completado e limpo"
+  },
+  "contact": {
+    "title": "Contacta connosco",
+    "description": "Encantaríanos saber de ti! Ponte en contacto connosco con calquera dúbida ou comentario.",
+    "name": "Nome",
+    "namePlaceholder": "Introduce o teu nome",
+    "email": "Correo Electrónico",
+    "emailPlaceholder": "Introduce o teu correo electrónico",
+    "message": "Mensaxe",
+    "messagePlaceholder": "Escribe a túa mensaxe aquí",
+    "submit": "Enviar"
   },
   "footer": {
     "information": "INFORMACIÓN",
@@ -37,5 +65,11 @@
     "currentEdition": "Edición Actual",
     "historical": "Histórico",
     "contact": "CONTACTO"
+  },
+  "buttons": {
+    "submit": "Enviar",
+    "next": "Seguindo",
+    "back": "De volta",
+    "finish": "Remate"
   }
 }

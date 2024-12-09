@@ -10,9 +10,9 @@ import Switch from "../shared/Switch";
 import Slider from "../shared/Slider";
 
 interface FormData {
-    nombre: string;
+    name: string;
     email: string;
-    fechaNacimiento: string;
+    birthDate: string;
     companySatisfaction: number;
     workersSatisfaction: number;
     participation: boolean;
@@ -29,9 +29,9 @@ const FormWizardSurvey: React.FC = () => {
     const initialFormData = useMemo(() => {
         const savedData = JSON.parse(localStorage.getItem('formData') || '{}');
         return savedData && Object.keys(savedData).length > 0 ? savedData : {
-            nombre: '',
+            name: '',
             email: '',
-            fechaNacimiento: '',
+            birthDate: '',
             companySatisfaction: 5,
             workersSatisfaction: 5,
             participation: false,
@@ -57,17 +57,10 @@ const FormWizardSurvey: React.FC = () => {
     };
 
     const handleSliderChange = (newValue: number, satisfactionType: string) => {
-        if (satisfactionType === 'companySatisfaction') {
-            setFormData((prevData) => ({
-                ...prevData,
-                companySatisfaction: newValue,
-            }));
-        } else {
-            setFormData((prevData) => ({
-                ...prevData,
-                workersSatisfaction: newValue,
-            }));
-        }
+        setFormData((prevData) => ({
+            ...prevData,
+            [satisfactionType]: newValue,
+        }));
     };
 
     const handleToggleChange = (state: boolean) => {
@@ -83,9 +76,9 @@ const FormWizardSurvey: React.FC = () => {
 
         // Reset the formData state to its initial state
         setFormData({
-            nombre: '',
+            name: '',
             email: '',
-            fechaNacimiento: '',
+            birthDate: '',
             companySatisfaction: 5,
             workersSatisfaction: 5,
             participation: false,
@@ -98,11 +91,11 @@ const FormWizardSurvey: React.FC = () => {
         // Change the key to force re-render of the FormWizard component
         setResetKey((prevKey) => prevKey + 1);
 
-        alert("Formulario completado y vaciado");
+        alert(t("survey.completed"));
     };
 
     const checkValidateTab0 = () => {
-        return formData.nombre !== "" && formData.email !== "" && formData.fechaNacimiento !== "";
+        return formData.name !== "" && formData.email !== "" && formData.birthDate !== "";
     };
 
     const checkValidateTab2 = () => {
@@ -110,11 +103,12 @@ const FormWizardSurvey: React.FC = () => {
     };
 
     const errorMessages = () => {
-        alert("Debe completar los campos requeridos");
+        alert(t("survey.error"));
+
     };
 
     const errorMessagesTab2 = () => {
-        alert("Debe completar los campos requeridos");
+        alert(t("survey.error"));
     };
 
     return (
@@ -125,28 +119,33 @@ const FormWizardSurvey: React.FC = () => {
                 customDarkModeColor={{
                     tab: "#6495ed", //hex color
                     tabIconColor: "#ffffff", //rgb color
-                    buttons: "#000000",
-                    buttonsText: "#ffffff",
-                    finishButton: "#fad504",
-                    finishButtonText: "#000000",
                 }}
+                backButtonTemplate={(handlePrevious) => (
+                    <div className="wizard-footer-left" style={{ backgroundColor: "rgb(0, 0, 0)", borderColor: "rgb(0, 0, 0)", borderRadius: "4px" }}><button onClick={handlePrevious} className="wizard-btn" type="button" style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(0, 0, 0)" }}>{t("buttons.back")}</button></div>
+                )}
+                nextButtonTemplate={(handleNext) => (
+                    <div className="wizard-footer-right" style={{ backgroundColor: "rgb(0, 0, 0)", borderColor: "rgb(0, 0, 0)", borderRadius: "4px" }}><button onClick={handleNext} className="wizard-btn" type="button" style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(0, 0, 0)" }}>{t("buttons.next")}</button></div>
+                )}
+                finishButtonTemplate={(handleComplete) => (
+                    <div className="wizard-footer-right" style={{ backgroundColor: "rgb(0, 0, 0)", borderColor: "rgb(0, 0, 0)", borderRadius: "4px" }}><button onClick={handleComplete} className="wizard-btn" type="button" style={{ color: "rgb(0, 0, 0)", backgroundColor: "rgb(250, 213, 4)" }}>{t("buttons.finish")}</button></div>
+                )}
                 onComplete={handleComplete} startIndex={startIndex}>
-                <FormWizard.TabContent title={t('survey.Personal data')} icon="ti-user">
+                <FormWizard.TabContent title={t("survey.personalData")} icon="ti-user">
                     <form className="responsive-form">
                         <div className="form-group">
-                            <label htmlFor="nombre">Nombre:<span className="required">*</span></label>
+                            <label htmlFor="name">{t("survey.name")}:<span className="required">*</span></label>
                             <input
                                 type="text"
-                                id="nombre"
-                                name="nombre"
-                                value={formData.nombre}
+                                id="name"
+                                name="name"
+                                value={formData.name}
                                 onChange={handleChange}
                                 required
                             />
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email">Email:<span className="required">*</span></label>
+                            <label htmlFor="email">{t("survey.email")}:<span className="required">*</span></label>
                             <input
                                 type="email"
                                 id="email"
@@ -158,12 +157,12 @@ const FormWizardSurvey: React.FC = () => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="fechaNacimiento">Fecha de Nacimiento:<span className="required">*</span></label>
+                            <label htmlFor="birthDate">{t("survey.birthDate")}:<span className="required">*</span></label>
                             <input
                                 type="date"
-                                id="fechaNacimiento"
-                                name="fechaNacimiento"
-                                value={formData.fechaNacimiento}
+                                id="birthDate"
+                                name="birthDate"
+                                value={formData.birthDate}
                                 onChange={handleChange}
                                 required
                             />
@@ -171,76 +170,83 @@ const FormWizardSurvey: React.FC = () => {
                     </form>
                 </FormWizard.TabContent>
                 <FormWizard.TabContent
-                    title={t('survey.Satisfaction measure')}
+                    title={t("survey.satisfactionMeasure")}
                     icon="ti-settings"
                     isValid={checkValidateTab0()}
                     validationError={errorMessages}
                 >
                     <form className="responsive-form">
                         <div className="form-group">
-                            <label htmlFor="nombre">Satisfacción con la organización del evento(1 a 10):<span className="required">*</span></label>
-                            <Slider min={0} max={10} value={formData.companySatisfaction} onChange={(ev) => handleSliderChange(ev, 'companySatisfaction')} />
+                            <label htmlFor="companySatisfaction">{t("survey.companySatisfaction")}:<span className="required">*</span></label>
+                            <Slider id="companySatisfaction" min={0} max={10} value={formData.companySatisfaction} onChange={(ev) => handleSliderChange(ev, 'companySatisfaction')} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="nombre">Satisfacción con el personal del evento(1 a 10):<span className="required">*</span></label>
-                            <Slider min={0} max={10} value={formData.workersSatisfaction} onChange={(ev) => handleSliderChange(ev, 'workersSatisfaction')} />
+                            <label htmlFor="workersSatisfaction">{t("survey.workerSatisfaction")}:<span className="required">*</span></label>
+                            <Slider id="workersSatisfaction" min={0} max={10} value={formData.workersSatisfaction} onChange={(ev) => handleSliderChange(ev, 'workersSatisfaction')} />
                         </div>
                     </form>
                 </FormWizard.TabContent>
-                <FormWizard.TabContent title={t('survey.Comment')} icon="ti-check">
+                <FormWizard.TabContent title={t("survey.comments")} icon="ti-check">
                     <form className="responsive-form">
                         <div className="form-group">
-                            <label htmlFor="nombre">¿Volverías a participar en el evento?(Si/No):<span className="required">*</span></label>
-                            <Switch isOn={formData.participation} onToggle={handleToggleChange} />
+                            <label htmlFor="participation">{t("survey.participation")}:<span className="required">*</span></label>
+                            <Switch id="participation" isOn={formData.participation} onToggle={handleToggleChange} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="feedback">¿Cómo podriamos mejorar?:<span className="required">*</span></label>
+                            <label htmlFor="feedback">{t("survey.feedback")}:<span className="required">*</span></label>
                             <div className="text-area-container">
                                 <textarea
                                     id="feedback"
                                     name="feedback"
                                     value={formData.feedback}
                                     onChange={handleChange}
-                                    placeholder='Escribe tu comentario aqui'
+                                    placeholder={t("survey.feedbackPlaceholder")}
                                     maxLength={200}
                                     required className="text-area"
                                 />
                                 <p className="char-count">
-                                    {formData.feedback.length}/{200} characters
+                                    {formData.feedback.length}/{200} {t("survey.chars")}
                                 </p>
                             </div>
                         </div>
                     </form>
                 </FormWizard.TabContent>
-                <FormWizard.TabContent title={t('survey.Confirmation')} icon="ti-check" isValid={checkValidateTab2()}
-                    validationError={errorMessagesTab2}>
+                <FormWizard.TabContent
+                    title={t('survey.confirmation')}
+                    icon="ti-check"
+                    isValid={checkValidateTab2()}
+                    validationError={errorMessagesTab2}
+                >
                     <div className="summary-container">
-                        <h2>Resumen de Información</h2>
+                        <h2>{t('survey.summaryTitle')}</h2>
                         <div className="summary-item">
-                            <strong>Nombre:</strong> <span>{formData.nombre || 'No proporcionado'}</span>
+                            <strong>{t('survey.name')}:</strong> <span>{formData.name || t('survey.notProvided')}</span>
                         </div>
                         <div className="summary-item">
-                            <strong>Email:</strong> <span>{formData.email || 'No proporcionado'}</span>
+                            <strong>{t('survey.email')}:</strong> <span>{formData.email || t('survey.notProvided')}</span>
                         </div>
                         <div className="summary-item">
-                            <strong>Fecha de Nacimiento:</strong> <span>{formData.fechaNacimiento || 'No proporcionado'}</span>
+                            <strong>{t('survey.birthDate')}:</strong> <span>{formData.birthDate || t('survey.notProvided')}</span>
                         </div>
                         <div className="summary-item">
-                            <strong>Satisfacción con la Empresa:</strong> <span>{formData.companySatisfaction}/10</span>
+                            <strong>{t('survey.companySatisfaction')}:</strong>{" "}
+                            <span>{formData.companySatisfaction}/10</span>
                         </div>
                         <div className="summary-item">
-                            <strong>Satisfacción con los Compañeros:</strong> <span>{formData.workersSatisfaction}/10</span>
+                            <strong>{t('survey.workerSatisfaction')}:</strong>{" "}
+                            <span>{formData.workersSatisfaction}/10</span>
                         </div>
                         <div className="summary-item">
-                            <strong>Participación:</strong>{' '}
-                            <span>{formData.participation ? 'Sí' : 'No'}</span>
+                            <strong>{t('survey.participation')}:</strong>{" "}
+                            <span>{formData.participation ? t('survey.yes') : t('survey.no')}</span>
                         </div>
                         <div className="summary-item">
-                            <strong>Comentarios:</strong>{' '}
-                            <span>{formData.feedback || 'Sin comentarios'}</span>
+                            <strong>{t('survey.comments')}:</strong>{" "}
+                            <span>{formData.feedback || t('survey.noComments')}</span>
                         </div>
                     </div>
                 </FormWizard.TabContent>
+
             </FormWizard>
         </>
     );

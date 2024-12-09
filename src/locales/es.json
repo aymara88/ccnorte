@@ -10,10 +10,37 @@
     "Galician": "Gallego"
   },
   "survey": {
-    "Personal data": "Datos personales",
-    "Satisfaction measure": "Medida de satisfacción",
-    "Comment": "Comentario",
-    "Confirmation": "Confirmación"
+    "personalData": "Datos Personales",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "birthDate": "Fecha de Nacimiento",
+    "satisfactionMeasure": "Medida de Satisfacción",
+    "companySatisfaction": "Satisfacción con la Organización del Evento (1-10)",
+    "workerSatisfaction": "Satisfacción con el Personal (1-10)",
+    "value": "Valor",
+    "comments": "Comentarios",
+    "participation": "¿Participarías nuevamente?",
+    "feedback": "¿Cómo podemos mejorar?",
+    "feedbackPlaceholder": "Escribe tu comentario aqui",
+    "chars": "caracteres",
+    "confirmation": "Confirmación",
+    "summaryTitle": "Resumen de Información",
+    "notProvided": "No proporcionado",
+    "yes": "Sí",
+    "no": "No",
+    "noComments": "Sin comentarios",
+    "error": "Debe completar los campos requeridos",
+    "completed": "Formulario completado y limpiado"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "description": "¡Nos encantaría saber de ti! Contáctanos con cualquier pregunta o comentario.",
+    "name": "Nombre",
+    "namePlaceholder": "Ingresa tu nombre",
+    "email": "Correo Electrónico",
+    "emailPlaceholder": "Ingresa tu correo electrónico",
+    "message": "Mensaje",
+    "messagePlaceholder": "Escribe tu mensaje aquí"
   },
   "footer": {
     "information": "INFORMACIÓN",
@@ -37,5 +64,11 @@
     "currentEdition": "Edición Actual",
     "historical": "Histórico",
     "contact": "CONTACTAR"
+  },
+  "buttons":{
+    "submit": "Enviar",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "finish": "Finalizar"
   }
 }
