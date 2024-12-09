@@ -13,12 +13,12 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({
   links = [
-    { label: 'EVENTS', url: '/events' }, // Scroll to section
-    { label: 'INFORMATION', url: '/info' }, // Scroll to section
-    { label: 'SIGNUP', refName: 'signup' }, // External link
-    { label: 'ROUTES', refName: 'routes' }, // Scroll to section
-    { label: 'RESULTS', url: '/results' }, // External link
-    { label: 'CONTACT', refName: 'contact' }, // Scroll to section
+    { label: 'navbar.EVENTS', url: '/events' }, // Scroll to section
+    { label: 'navbar.INFORMATION', url: '/info' }, // Scroll to section
+    { label: 'navbar.SIGNUP', refName: 'signup' }, // External link
+    { label: 'navbar.ROUTES', refName: 'routes' }, // Scroll to section
+    { label: 'navbar.RESULTS', url: '/results' }, // External link
+    { label: 'navbar.CONTACT', refName: 'contact' }, // Scroll to section
   ],
   languages = [
     { src: es, alt: 'Spanish', code: 'es' },
@@ -74,6 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({
               key={index}
               src={language.src}
               alt={`${language.alt} Flag`}
+              title={t(`navbar.${language.alt}`)}
               className={`navbar-image ${currentLanguage === language.code ? 'selected' : ''}`}
               onClick={() => changeLanguage(language.code)}
             />
@@ -102,7 +103,7 @@ const Navbar: React.FC<NavbarProps> = ({
               key={index}
               src={language.src}
               alt={`${language.alt} Flag`}
-              title={t(language.alt)}
+              title={t(`navbar.${language.alt}`)}
               className={`navbar-image ${currentLanguage === language.code ? 'selected' : ''}`}
               onClick={() => changeLanguage(language.code)}
             />

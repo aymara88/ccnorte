@@ -1,31 +1,15 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import esTranslation from './locales/es.json';
+import glTranslation from './locales/gl.json';
 
 i18next.use(initReactI18next).init({
   resources: {
     es: {
-      translation: {
-        EVENTS: "Eventos",
-        INFORMATION: "Información",
-        SIGNUP: "Inscripción",
-        ROUTES: "Recorridos",
-        RESULTS: "Resultados",
-        CONTACT: "Contactar",
-        Spanish: "Español",
-        Galician: "Gallego",
-      },
+      translation: esTranslation
     },
     gl: {
-      translation: {
-        EVENTS: "Eventos",
-        INFORMATION: "Información",
-        SIGNUP: "Inscrición",
-        ROUTES: "Tours",
-        RESULTS: "Resultados",
-        CONTACT: "Contacto",
-        Spanish: "Castelán",
-        Galician: "Galego",
-      },
+      translation: glTranslation
     },
   },
   lng: 'es', // Set the default language

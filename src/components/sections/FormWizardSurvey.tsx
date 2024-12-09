@@ -1,5 +1,7 @@
 
 import { useState, useMemo, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
+
 import FormWizard from "react-form-wizard-component";
 import "react-form-wizard-component/dist/style.css";
 import '../../styles/_form.scss'
@@ -18,6 +20,8 @@ interface FormData {
 }
 
 const FormWizardSurvey: React.FC = () => {
+    const { t } = useTranslation();
+
     const [startIndex, setStartIndex] = useState<number>(0);
     const [resetKey, setResetKey] = useState<number>(0);
 
@@ -110,7 +114,7 @@ const FormWizardSurvey: React.FC = () => {
     };
 
     const errorMessagesTab2 = () => {
-        alert("Debe completar los campos requeridos2");
+        alert("Debe completar los campos requeridos");
     };
 
     return (
@@ -127,7 +131,7 @@ const FormWizardSurvey: React.FC = () => {
                     finishButtonText: "#000000",
                 }}
                 onComplete={handleComplete} startIndex={startIndex}>
-                <FormWizard.TabContent title="Datos personales" icon="ti-user">
+                <FormWizard.TabContent title={t('survey.Personal data')} icon="ti-user">
                     <form className="responsive-form">
                         <div className="form-group">
                             <label htmlFor="nombre">Nombre:<span className="required">*</span></label>
@@ -167,7 +171,7 @@ const FormWizardSurvey: React.FC = () => {
                     </form>
                 </FormWizard.TabContent>
                 <FormWizard.TabContent
-                    title="Medida de satisfacción"
+                    title={t('survey.Satisfaction measure')}
                     icon="ti-settings"
                     isValid={checkValidateTab0()}
                     validationError={errorMessages}
@@ -183,7 +187,7 @@ const FormWizardSurvey: React.FC = () => {
                         </div>
                     </form>
                 </FormWizard.TabContent>
-                <FormWizard.TabContent title="Comentario" icon="ti-check">
+                <FormWizard.TabContent title={t('survey.Comment')} icon="ti-check">
                     <form className="responsive-form">
                         <div className="form-group">
                             <label htmlFor="nombre">¿Volverías a participar en el evento?(Si/No):<span className="required">*</span></label>
@@ -208,7 +212,7 @@ const FormWizardSurvey: React.FC = () => {
                         </div>
                     </form>
                 </FormWizard.TabContent>
-                <FormWizard.TabContent title="Confirmación" icon="ti-check" isValid={checkValidateTab2()}
+                <FormWizard.TabContent title={t('survey.Confirmation')} icon="ti-check" isValid={checkValidateTab2()}
                     validationError={errorMessagesTab2}>
                     <div className="summary-container">
                         <h2>Resumen de Información</h2>

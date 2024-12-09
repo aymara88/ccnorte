@@ -38,9 +38,9 @@ const Footer: React.FC = () => {
         <h3>CONTACTAR</h3>
       </div>
       <div className="footer-section social-icons">
-        <img src={facebook} alt="Facebook" className="icon" />
-        <img src={twitter} alt="Twitter" className="icon" />
-        <img src={instagram} alt="Instagram" className="icon" />
+        <img src={facebook} alt="Facebook" title="Facebook" className="icon" />
+        <img src={twitter} alt="Twitter" title="Twitter" className="icon" />
+        <img src={instagram} alt="Instagram" title="Instagram" className="icon" />
       </div>
     </footer>
   );
