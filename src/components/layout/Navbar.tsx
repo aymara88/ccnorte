@@ -13,12 +13,12 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({
   links = [
-    { label: 'EVENTOS', url: '/events' }, // Scroll to section
-    { label: 'INFORMACIÓN', url: '/info' }, // Scroll to section
-    { label: 'INSCRIPCIÓN', refName: 'signup' }, // External link
-    { label: 'RECORRIDOS', refName: 'routes' }, // Scroll to section
-    { label: 'RESULTADOS', url: '/results' }, // External link
-    { label: 'CONTACTAR', refName: 'contact' }, // Scroll to section
+    { label: 'EVENTS', url: '/events' }, // Scroll to section
+    { label: 'INFORMATION', url: '/info' }, // Scroll to section
+    { label: 'SIGNUP', refName: 'signup' }, // External link
+    { label: 'ROUTES', refName: 'routes' }, // Scroll to section
+    { label: 'RESULTS', url: '/results' }, // External link
+    { label: 'CONTACT', refName: 'contact' }, // Scroll to section
   ],
   languages = [
     { src: es, alt: 'Spanish', code: 'es' },

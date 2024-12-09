@@ -71,6 +71,10 @@ textarea:focus {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+  &:hover{
+    background-color: var.$primaryColorHover;
+  }
 }
 
 @media (max-width: 768px) {

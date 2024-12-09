@@ -1,12 +1,12 @@
-function Button({name, icon} : {name: string, icon: string}) {
+function Button({ name, icon }: { name: string; icon: string }) {
     return (
-        <div className="button">
-            <div>
-                <img src={icon} alt="icon" className="icon"/>
+        <button className="button" aria-label={name}>
+            <div className="icon-wrapper">
+                <img src={icon} alt={`${name} icon`} className="icon" />
             </div>
-            {name}
-        </div>
-    )
+            <span className="button-text">{name}</span>
+        </button>
+    );
 }
 
-export default Button
+export default Button;

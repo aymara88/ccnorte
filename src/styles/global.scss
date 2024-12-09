@@ -2,6 +2,7 @@
 
 /* Definición de variables */
 $primaryColor: #fad504;
+$primaryColorHover: #f1da5a;
 $secondaryColor: #6495ed;
 $requiredColor: #ff0000;
 $linkColor: #6495ed;
@@ -164,10 +165,11 @@ body {
   }
 }
 
+/* main layout sections */
 .section {
-  padding: 50px 20px !important; // Space for the fixed navbar
+  padding: 80px 20px !important; // Space for the fixed navbar
   min-height: 10vh;
-  scroll-margin-top: 80px; // Adjust according to navbar height  
+  scroll-margin-top: 80px; // Adjust according to navbar height
 }
 
 /* footer */
@@ -276,11 +278,25 @@ body {
 }
 
 /* main */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .button-section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-top: 5%;
   gap: 30px;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
 }
 
 .button {
@@ -290,16 +306,32 @@ body {
   text-align: center;
   padding: 1%;
   gap: 10px;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
   width: 130px;
   height: 110px;
   cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.button:hover {
+  background-color: $primaryColorHover;
+}
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .icon {
   max-width: 40px;
+  max-height: 40px;
 }
 
+/* Info Section */
 .info-section {
   background-color: #f9f9f9;
   border-top: 1px solid $borderColor;
@@ -307,16 +339,25 @@ body {
   margin-bottom: 5%;
   text-align: center;
   font-weight: bold;
+  padding: 20px;
+}
+
+.info-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .text-xxl {
   font-size: 40px;
+  margin-bottom: 15px;
 }
 
 .link {
   color: $linkColor;
   cursor: pointer;
+  text-decoration: underline;
 }
+
 
 /* shared switch component */
 $switch-width: 50px;
@@ -393,3 +434,36 @@ $switch-toggle-bg: white;
   }
 }
 
+/* scroll to top */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background-color: $primaryColor;
+  color: $accentColor;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background-color: $primaryColorHover;
+}
+
+.scroll-to-top svg {
+  font-size: 16px;
+}

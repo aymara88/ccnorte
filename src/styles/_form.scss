@@ -119,3 +119,10 @@ $required-color: var.$requiredColor;
     }
   }
 }
+
+.react-form-wizard .wizard-btn {
+  &:hover {
+    background-color: var.$primaryColorHover !important;
+    color: var.$accentColor !important;
+  }
+}
