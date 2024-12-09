@@ -94,7 +94,7 @@ const FormWizardSurvey: React.FC = () => {
         // Change the key to force re-render of the FormWizard component
         setResetKey((prevKey) => prevKey + 1);
 
-        alert("Formulario completedado y vaciado");
+        alert("Formulario completado y vaciado");
     };
 
     const checkValidateTab0 = () => {

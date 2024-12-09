@@ -4,7 +4,9 @@ import book from "../../assets/icons/book.png"
 import user from "../../assets/icons/user.png"
 import chart from "../../assets/icons/bar-graph.png"
 
-import FormWizardSurvey from "../forms/FormWizardSurvey"
+import FormWizardSurvey from "../sections/FormWizardSurvey"
+import MarathonRoute from "../sections/MarathonRoute"
+import Contact from "../sections/Contact"
 
 function Main() {
     return (
@@ -15,7 +17,7 @@ function Main() {
                 <Button name="CONFIRMAR ASISTENCIA" icon={user} />
                 <Button name="RESULTADOS" icon={chart} />
             </section>
-            <section className="info-section">
+            <section id="signup" className="section info-section">
                 <p className="text-xxl">Carrera Popular NOVO MESOIRO NUEVA FECHA 15/12/2024</p>
                 <p>REAPERTURA DE INSCRIPCIONES</p>
                 <p>SOLICITAR DEVOLUCIONES* <span className="link">AQUÍ</span></p>
@@ -23,7 +25,9 @@ function Main() {
             </section>
 
             {/* Tu código aquí :) */}
-            <FormWizardSurvey/>
+            <FormWizardSurvey />
+            <MarathonRoute />
+            <Contact />
         </main>
     )
 }

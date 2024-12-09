@@ -13,12 +13,12 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({
   links = [
-    { label: "EVENTS", refName: "events" },
-    { label: "INFORMATION", refName: "info" },
-    { label: "SIGNUP", refName: "signup" },
-    { label: "ROUTES", refName: "routes" },
-    { label: "RESULTS", refName: "results" },
-    { label: "CONTACT", refName: "contact" },
+    { label: 'EVENTOS', url: '/events' }, // Scroll to section
+    { label: 'INFORMACIÓN', url: '/info' }, // Scroll to section
+    { label: 'INSCRIPCIÓN', refName: 'signup' }, // External link
+    { label: 'RECORRIDOS', refName: 'routes' }, // Scroll to section
+    { label: 'RESULTADOS', url: '/results' }, // External link
+    { label: 'CONTACTAR', refName: 'contact' }, // Scroll to section
   ],
   languages = [
     { src: es, alt: 'Spanish', code: 'es' },
@@ -27,14 +27,19 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState(es);
+
   const isMobile = useIsMobile(); // Check if the device is mobile
 
-  // Function to handle scroll to a section
-  const handleScroll = (refName: string) => {
-    const section = document.getElementById(refName);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setIsMenuOpen(false); // Close the menu when an item is clicked on mobile
+  const handleAction = (link: typeof links[number]) => {
+    if (link.refName) {
+      const section = document.getElementById(link.refName);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        setIsMenuOpen(false); // Close menu for mobile
+      }
+    } else if (link.url) {
+      window.open(link.url, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -45,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   // Function to change language
   const changeLanguage = (langCode: string) => {
-    console.log(langCode)
+    setCurrentLanguage(langCode)
     i18n.changeLanguage(langCode);
   };
 
@@ -69,7 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({
               key={index}
               src={language.src}
               alt={`${language.alt} Flag`}
-              className="navbar-image border"
+              className={`navbar-image ${currentLanguage === language.code ? 'selected' : ''}`}
               onClick={() => changeLanguage(language.code)}
             />
           ))}
@@ -77,10 +82,13 @@ const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Menu Links */}
-      <ul className={`navbar-links ${isMenuOpen ? "show" : ""}`}>
+      <ul className={`navbar-links ${isMenuOpen ? 'show' : ''}`}>
         {links.map((link, index) => (
           <li key={index}>
-            <button className="link-button" onClick={() => handleScroll(link.refName)}>
+            <button
+              className={`link-button ${link.url ? 'external' : ''}`}
+              onClick={() => handleAction(link)}
+            >
               {t(link.label)}
             </button>
           </li>
@@ -95,7 +103,7 @@ const Navbar: React.FC<NavbarProps> = ({
               src={language.src}
               alt={`${language.alt} Flag`}
               title={t(language.alt)}
-              className="navbar-image border"
+              className={`navbar-image ${currentLanguage === language.code ? 'selected' : ''}`}
               onClick={() => changeLanguage(language.code)}
             />
           ))}
