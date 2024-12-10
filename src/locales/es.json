@@ -36,11 +36,15 @@
     "title": "Contáctanos",
     "description": "¡Nos encantaría saber de ti! Contáctanos con cualquier pregunta o comentario.",
     "name": "Nombre",
-    "namePlaceholder": "Ingresa tu nombre",
     "email": "Correo Electrónico",
-    "emailPlaceholder": "Ingresa tu correo electrónico",
     "message": "Mensaje",
-    "messagePlaceholder": "Escribe tu mensaje aquí"
+    "messagePlaceholder": "Escribe tu mensaje aquí",
+    "validation": {
+      "nameRequired": "El nombre es obligatorio.",
+      "validEmailRequired": "Por favor, introduce un correo electrónico válido.",
+      "messageRequired": "El mensaje es obligatorio."
+    },
+    "successMessage": "¡Tu mensaje ha sido enviado con éxito!"
   },
   "footer": {
     "information": "INFORMACIÓN",

@@ -36,12 +36,15 @@
     "title": "Contacta connosco",
     "description": "Encantaríanos saber de ti! Ponte en contacto connosco con calquera dúbida ou comentario.",
     "name": "Nome",
-    "namePlaceholder": "Introduce o teu nome",
     "email": "Correo Electrónico",
-    "emailPlaceholder": "Introduce o teu correo electrónico",
     "message": "Mensaxe",
     "messagePlaceholder": "Escribe a túa mensaxe aquí",
-    "submit": "Enviar"
+    "validation": {
+      "nameRequired": "O nome é obrigatorio.",
+      "validEmailRequired": "Por favor, introduce un correo electrónico válido.",
+      "messageRequired": "A mensaxe é obrigatoria."
+    },
+    "successMessage": "¡A túa mensaxe foi enviada con éxito!"
   },
   "footer": {
     "information": "INFORMACIÓN",
