@@ -5,6 +5,8 @@ $primaryColor: #fad504;
 $primaryColorHover: #f1da5a;
 $secondaryColor: #6495ed;
 $requiredColor: #ff0000;
+$success: #09b82c;
+$error: #ff0000;
 $linkColor: #6495ed;
 $fontFamily: "Roboto", sans-serif;
 $fontSize: 14px;
@@ -435,4 +437,23 @@ $switch-toggle-bg: white;
 
 .scroll-to-top svg {
   font-size: 16px;
+}
+
+/* Custom CSS for small, minimal alerts */
+.small-alert-error {
+  font-size: 14px; /* Adjust font size */
+
+  .swal2-timer-progress-bar {
+    background-color: $error !important; /* Change to your desired color */
+    height: 5px; /* Adjust the height as needed */
+  }
+}
+
+.small-alert-success {
+  font-size: 14px; /* Adjust font size */
+
+  .swal2-timer-progress-bar {
+    background-color: $success !important; /* Change to your desired color */
+    height: 5px; /* Adjust the height as needed */
+  }
 }

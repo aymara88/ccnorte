@@ -1,11 +1,9 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
-import { toast, ToastContainer } from 'react-toastify';
-
+import Swal from 'sweetalert2';
 import FormWizard from "react-form-wizard-component";
 import "react-form-wizard-component/dist/style.css";
-import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/_form.scss'
 
 import Switch from "../shared/Switch";
@@ -93,8 +91,18 @@ const FormWizardSurvey: React.FC = () => {
         // Change the key to force re-render of the FormWizard component
         setResetKey((prevKey) => prevKey + 1);
 
-        toast.success(t("survey.completed"), {
-            position: "top-center",
+        // Show success alert using SweetAlert2
+        Swal.fire({
+            text: t("survey.completed"),
+            position: "top",
+            width: 300,
+            showConfirmButton: false, // Hide the OK button
+            timer: 2000, // Auto-close after 1.5 seconds
+            timerProgressBar: true,
+            backdrop: false,
+            customClass: {
+                popup: 'small-alert-success',
+            }
         });
     };
 
@@ -107,14 +115,22 @@ const FormWizardSurvey: React.FC = () => {
     };
 
     const errorMessages = () => {
-        toast.error(t("survey.error"), {
-            position: "top-center",
+        Swal.fire({
+            text: t("survey.error"),
+            position: "top",
+            width: 300,
+            showConfirmButton: false, // Hide the OK button
+            timer: 2000, // Auto-close after 1.5 seconds
+            timerProgressBar: true,
+            backdrop: false,
+            customClass: {
+                popup: 'small-alert-error',
+            }
         });
     };
 
     return (
         <>
-            <ToastContainer />
             <FormWizard stepSize="xs" darkMode={true}
                 key={resetKey} // Use the key to force a re-mount
                 color="darkblue"

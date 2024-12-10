@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
 import '../../styles/_contact.scss';
 
 const Contact: React.FC = () => {
@@ -24,22 +23,67 @@ const Contact: React.FC = () => {
 
     // Validate inputs
     if (!name) {
-      toast.error(t("contact.validation.nameRequired"), { position: "top-center" });
+      Swal.fire({
+        text: t("contact.validation.nameRequired"),
+        position: "top",
+        width: 300,
+        showConfirmButton: false, // Hide the OK button
+        timer: 2000, // Auto-close after 1.5 seconds
+        timerProgressBar: true,
+        backdrop: false,
+        customClass: {
+          popup: 'small-alert-error',
+        }
+      });
+
       return;
     }
 
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      toast.error(t("contact.validation.validEmailRequired"), { position: "top-center" });
+      Swal.fire({
+        text: t("contact.validation.validEmailRequired"),
+        position: "top",
+        width: 300,
+        showConfirmButton: false, // Hide the OK button
+        timer: 2000, // Auto-close after 1.5 seconds
+        timerProgressBar: true,
+        backdrop: false,
+        customClass: {
+          popup: 'small-alert-error',
+        }
+      });
       return;
     }
 
     if (!message) {
-      toast.error(t("contact.validation.messageRequired"), { position: "top-center" });
+      Swal.fire({
+        text: t("contact.validation.messageRequired"),
+        position: "top",
+        width: 300,
+        showConfirmButton: false, // Hide the OK button
+        timer: 2000, // Auto-close after 1.5 seconds
+        timerProgressBar: true,
+        backdrop: false,
+        customClass: {
+          popup: 'small-alert-error',
+        }
+      });
       return;
     }
 
     // Success
-    toast.success(t("contact.successMessage"), { position: "top-center" });
+    Swal.fire({
+      text: t("contact.successMessage"),
+      position: "top",
+      width: 300,
+      showConfirmButton: false, // Hide the OK button
+      timer: 2000, // Auto-close after 1.5 seconds
+      timerProgressBar: true,
+      backdrop: false,
+      customClass: {
+          popup: 'small-alert-success',
+      }
+  });
 
     // Clear fields
     if (nameRef.current) nameRef.current.value = "";
@@ -49,7 +93,6 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="contact-section section">
-      <ToastContainer />
       <div className="contact-container">
         <h1 className="contact-title">{t('contact.title')}</h1>
         <p className="contact-description">{t('contact.description')}</p>
