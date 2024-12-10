@@ -181,7 +181,7 @@ body {
 
 /* main layout sections */
 .section {
-  padding: 20px !important; // Space for the fixed navbar
+  padding: 0 20px !important; // Space for the fixed navbar
   min-height: 10vh;
   scroll-margin-top: 80px; // Adjust according to navbar height
 }
@@ -306,7 +306,7 @@ body {
 .info-section {
   background-color: #f9f9f9;
   border-top: 1px solid $borderColor;
-  margin: 1% 0;
+  padding: 3% 0 !important;
   text-align: center;
   font-weight: bold;
   padding: 20px;

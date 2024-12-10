@@ -1,6 +1,7 @@
 @use "./global.scss" as var;
 
 $responsive-form-width: 650px;
+$responsive-form-height: 350px;
 $form-background: var.$formBackground;
 $form-border-color: #ddd;
 $form-border-radius: 8px;
@@ -20,12 +21,14 @@ $required-color: var.$requiredColor;
 
 .responsive-form {
   max-width: $responsive-form-width;
+  min-height: $responsive-form-height;
   margin: 20px auto;
   padding: 20px;
   background: $form-background;
   border: $form-border-color;
   border-radius: $form-border-radius;
   box-shadow: $form-shadow;
+  justify-content: space-around;
 
   .form-group {
     margin-bottom: 15px;
@@ -91,19 +94,112 @@ $required-color: var.$requiredColor;
   }
 }
 
-.summary-container {
+.react-form-wizard .wizard-btn {
+  &:hover {
+    background-color: var.$primaryColorHover !important;
+    color: var.$accentColor !important;
+  }
+}
+
+.react-form-wizard .wizard-card-footer {
+  padding: 0 20px;
+  max-width: 650px;
+  margin: auto;
+}
+
+/* Shared form styles */
+.responsive-form,
+.contact-form {
   max-width: $responsive-form-width;
   margin: 20px auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background: $form-background;
+  border: $form-border-color;
+  border-radius: $form-border-radius;
+  box-shadow: $form-shadow;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-weight: 600;
+    color: #333;
+  }
+
+  input,
+  textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    background-color: var.$formBackground;
+
+    &:focus {
+      border-color: var.$secondaryColor;
+      outline: none;
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+}
+
+/* Textarea character counter */
+.text-area-container {
+  position: relative;
+
+  .char-count {
+    font-size: 0.85rem;
+    color: #999;
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+  }
+}
+
+/* Summary container styling */
+.summary-container {
+  max-width: $responsive-form-width;
+  min-height: $responsive-form-height;
+  margin: 20px auto;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   h2 {
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
   }
 
+  .summary-item {
+    margin-bottom: 0.75rem;
+
+    strong {
+      color: #444;
+    }
+
+    span {
+      margin-left: 0.5rem;
+      color: #666;
+    }
+  }
+}
+
+.summary-container {
   .summary-item {
     text-align: left;
     margin: 10px 0;
@@ -116,12 +212,5 @@ $required-color: var.$requiredColor;
     span {
       margin-left: 5px;
     }
-  }
-}
-
-.react-form-wizard .wizard-btn {
-  &:hover {
-    background-color: var.$primaryColorHover !important;
-    color: var.$accentColor !important;
   }
 }

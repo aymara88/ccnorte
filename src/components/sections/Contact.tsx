@@ -17,7 +17,6 @@ const Contact: React.FC = () => {
               type="text"
               id="name"
               name="name"
-              placeholder={t('contact.namePlaceholder')}
             />
           </div>
           <div className="form-group">
@@ -26,7 +25,6 @@ const Contact: React.FC = () => {
               type="email"
               id="email"
               name="email"
-              placeholder={t('contact.emailPlaceholder')}
             />
           </div>
           <div className="form-group">

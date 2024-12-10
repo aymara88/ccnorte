@@ -6,17 +6,16 @@
 }
 
 .contact-container {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
   text-align: center;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  padding: 0 30px;
 }
 
 .contact-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #333;
   margin-bottom: 10px;
 }
@@ -39,25 +38,6 @@
 
 label {
   display: block;
-  font-size: 0.9rem;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-input,
-textarea {
-  width: -webkit-fill-available;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  transition: border-color 0.3s ease;
-}
-
-input:focus,
-textarea:focus {
-  border-color: var.$secondaryColor;
-  outline: none;
 }
 
 .submit-button {
@@ -72,18 +52,14 @@ textarea:focus {
   cursor: pointer;
   transition: background-color 0.3s ease;
 
-  &:hover{
+  &:hover {
     background-color: var.$primaryColorHover;
   }
 }
 
 @media (max-width: 768px) {
   .contact-container {
-    padding: 20px;
-  }
-
-  .contact-title {
-    font-size: 1.8rem;
+    padding: 0;
   }
 
   .contact-description {
