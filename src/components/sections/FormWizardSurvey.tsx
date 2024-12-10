@@ -1,9 +1,11 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
+import { toast, ToastContainer } from 'react-toastify';
 
 import FormWizard from "react-form-wizard-component";
 import "react-form-wizard-component/dist/style.css";
+import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/_form.scss'
 
 import Switch from "../shared/Switch";
@@ -91,7 +93,9 @@ const FormWizardSurvey: React.FC = () => {
         // Change the key to force re-render of the FormWizard component
         setResetKey((prevKey) => prevKey + 1);
 
-        alert(t("survey.completed"));
+        toast.success(t("survey.completed"), {
+            position: "top-center",
+        });
     };
 
     const checkValidateTab0 = () => {
@@ -103,16 +107,14 @@ const FormWizardSurvey: React.FC = () => {
     };
 
     const errorMessages = () => {
-        alert(t("survey.error"));
-
-    };
-
-    const errorMessagesTab2 = () => {
-        alert(t("survey.error"));
+        toast.error(t("survey.error"), {
+            position: "top-center",
+        });
     };
 
     return (
         <>
+            <ToastContainer />
             <FormWizard stepSize="xs" darkMode={true}
                 key={resetKey} // Use the key to force a re-mount
                 color="darkblue"
@@ -215,7 +217,7 @@ const FormWizardSurvey: React.FC = () => {
                     title={t('survey.confirmation')}
                     icon="ti-check"
                     isValid={checkValidateTab2()}
-                    validationError={errorMessagesTab2}
+                    validationError={errorMessages}
                 >
                     <div className="summary-container">
                         <h2>{t('survey.summaryTitle')}</h2>
