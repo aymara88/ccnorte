@@ -1,7 +1,10 @@
-import Navbar from "./components/Navbar"
-import Hero from "./components/Hero"
-import Main from "./components/Main"
-import Footer from "./components/Footer"
+import './i18n'; // Import the i18n configuration
+import Navbar from "./components/layout/Navbar"
+import Hero from "./components/layout/Hero"
+import Main from "./components/layout/Main"
+import Footer from "./components/layout/Footer"
+import ScrollToTop from "./components/layout/ScrollToTop";
+import './styles/global.scss'
 
 function App() {
   return (
@@ -10,6 +13,7 @@ function App() {
       <Hero />
       <Main />
       <Footer />
+      <ScrollToTop />
     </>
   )
 }

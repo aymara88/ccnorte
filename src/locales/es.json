@@ -1,0 +1,78 @@
+{
+  "navbar": {
+    "EVENTS": "Eventos",
+    "INFORMATION": "Información",
+    "SIGNUP": "Inscripción",
+    "ROUTES": "Recorridos",
+    "RESULTS": "Resultados",
+    "CONTACT": "Contactar",
+    "Spanish": "Español",
+    "Galician": "Gallego"
+  },
+  "survey": {
+    "personalData": "Datos Personales",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "birthDate": "Fecha de Nacimiento",
+    "satisfactionMeasure": "Medida de Satisfacción",
+    "companySatisfaction": "Satisfacción con la Organización del Evento (1-10)",
+    "workerSatisfaction": "Satisfacción con el Personal (1-10)",
+    "value": "Valor",
+    "comments": "Comentarios",
+    "participation": "¿Participarías nuevamente?",
+    "feedback": "¿Cómo podemos mejorar?",
+    "feedbackPlaceholder": "Escribe tu comentario aqui",
+    "chars": "caracteres",
+    "confirmation": "Confirmación",
+    "summaryTitle": "Resumen de Información",
+    "notProvided": "No proporcionado",
+    "yes": "Sí",
+    "no": "No",
+    "noComments": "Sin comentarios",
+    "error": "Debe completar los campos requeridos",
+    "completed": "Formulario completado y limpiado"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "description": "¡Nos encantaría saber de ti! Contáctanos con cualquier pregunta o comentario.",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "message": "Mensaje",
+    "messagePlaceholder": "Escribe tu mensaje aquí",
+    "validation": {
+      "nameRequired": "El nombre es obligatorio.",
+      "validEmailRequired": "Por favor, introduce un correo electrónico válido.",
+      "messageRequired": "El mensaje es obligatorio."
+    },
+    "successMessage": "¡Tu mensaje ha sido enviado con éxito!"
+  },
+  "footer": {
+    "information": "INFORMACIÓN",
+    "rules": "Reglamento",
+    "mixedTeams": "Equipos Mixtos",
+    "news": "Noticias",
+    "galleries": "Galerías",
+    "registration": "INSCRIPCIÓN",
+    "confirmAttendance": "Confirmar Asistencia",
+    "registrationRace": "Inscripción Carrera",
+    "registeredCircuit": "Inscritos Circuito",
+    "routes": "RECORRIDOS",
+    "herculesTower2024": "Torre de Hércules 23/03/2024",
+    "oza2024": "Volta a Oza 07/04/2024",
+    "sanPedro2024": "San Pedro de Visma 12/05/2024",
+    "osRosales2024": "Os Rosales 02/06/2024",
+    "matograndeXuxan2024": "Matogrande-Xuxán 15/09/2024",
+    "ventorrillo2024": "Ventorrillo 20/10/2024",
+    "novoMesoiro2024": "Novo Mesoiro 15/12/2024",
+    "results": "RESULTADOS",
+    "currentEdition": "Edición Actual",
+    "historical": "Histórico",
+    "contact": "CONTACTAR"
+  },
+  "buttons": {
+    "submit": "Enviar",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "finish": "Finalizar"
+  }
+}

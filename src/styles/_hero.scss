@@ -1,0 +1,175 @@
+@use "./global.scss" as var;
+
+.hero {
+  background-image: url("/src/assets/fondo.png");
+  background-size: cover;
+  background-position: center;
+  height: calc(80vh - 50px); /* Adjusted for the height of the fixed navbar */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  margin-top: 50px; /* Offset for the fixed navbar */
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1.5s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  animation: slideInRight 1.5s ease-in-out;
+}
+
+.date-box {
+  cursor: pointer;
+  background-color: var.$primaryColor; /* Replace with your color if needed */
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  width: max-content;
+  border-radius: 4px;
+  color: var.$accentColor;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+
+  &:hover {
+    background-color: var.$primaryColorHover;
+  }
+}
+
+.date-box:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.date-box:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.date-box:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.date-box:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.date-box:nth-child(5) {
+  animation-delay: 1s;
+}
+.date-box:nth-child(6) {
+  animation-delay: 1.2s;
+}
+.date-box:nth-child(7) {
+  animation-delay: 1.4s;
+}
+
+.hero-footer {
+  background-color: var.$primaryColor; /* Replace with your color if needed */
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  bottom: 0;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Adjustments for mobile */
+@media (max-width: 426px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    align-items: center; /* Center all child elements */
+  }
+
+  .hero-image {
+    width: 100%; /* Full width */
+    justify-content: center; /* Center content */
+    align-items: center; /* Center content vertically */
+  }
+
+  .hero-image img {
+    max-width: 300px; /* Adjust the size for mobile */
+  }
+
+  .hero-container {
+    align-items: center; /* Center items in the container */
+    padding: 10px;
+  }
+
+  .date-box {
+    font-size: 1rem; /* Smaller font size */
+    padding: 5px;
+    width: 80%; /* Adjust the width for smaller screens */
+    animation: fadeInUp 1s forwards; /* Change animation */
+  }
+
+  .date-box:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .date-box:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .date-box:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  .date-box:nth-child(4) {
+    animation-delay: 0.8s;
+  }
+  .date-box:nth-child(5) {
+    animation-delay: 1s;
+  }
+  .date-box:nth-child(6) {
+    animation-delay: 1.2s;
+  }
+  .date-box:nth-child(7) {
+    animation-delay: 1.4s;
+  }
+}

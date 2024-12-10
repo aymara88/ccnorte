@@ -1,0 +1,459 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Definición de variables */
+$primaryColor: #fad504;
+$primaryColorHover: #f1da5a;
+$secondaryColor: #6495ed;
+$requiredColor: #ff0000;
+$success: #09b82c;
+$error: #ff0000;
+$linkColor: #6495ed;
+$fontFamily: "Roboto", sans-serif;
+$fontSize: 14px;
+$textColor: #ffffff;
+$accentColor: #000000;
+$activeColor: #4f4e4e;
+$lightBackground: #f9f9f9;
+$borderColor: #f5f4f4;
+$formBackground: #f9f9f9;
+
+/* Aplicar la fuente y el tamaño por defecto */
+body {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  margin: 0;
+  padding: 0;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 2%;
+  background-color: $primaryColor;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  &-header {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      height: 40px;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 10px;
+
+      &:hover {
+        color: $accentColor;
+      }
+    }
+  }
+
+  &-links {
+    display: flex;
+    list-style: none;
+    flex: 2;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      margin: 0 15px;
+
+      .link-button {
+        background: none;
+        border: none;
+        color: $accentColor;
+        cursor: pointer;
+        transition: color 0.3s;
+        text-transform: uppercase;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+
+        /* &.external {
+          &:after {
+            content: " ↗";
+            font-size: 10px;
+            padding-left: 2px;
+          }
+        } */
+
+        &:hover {
+          color: $activeColor;
+        }
+
+        &:active {
+          color: $activeColor;
+        }
+      }
+    }
+  }
+
+  &-languages {
+    display: flex;
+    margin-right: 4%;
+
+    .navbar-image {
+      height: 15px;
+      margin-left: 5px;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .selected {
+      border: 1px solid #6f6f6f;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1200px) {
+    &-links {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      li {
+        .link-button {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    &-header {
+      justify-content: space-between;
+      width: 100%;
+
+      .navbar-toggle {
+        display: block;
+      }
+
+      .logo {
+        margin: 0 auto;
+      }
+    }
+
+    &-links {
+      flex-direction: column;
+      width: 100%;
+      display: none;
+      margin: 10px 0;
+
+      li {
+        margin: 10px 0;
+
+        .link-button {
+          font-size: 1.2rem;
+          text-transform: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &.show {
+        display: flex;
+      }
+    }
+  }
+}
+
+/* main layout sections */
+.section {
+  padding: 0 20px !important; // Space for the fixed navbar
+  min-height: 10vh;
+  scroll-margin-top: 80px; // Adjust according to navbar height
+}
+
+/* footer */
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  background-color: $primaryColor; // Primary color for the footer background
+  text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+
+  .footer-section {
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: $accentColor; // Dark color for section headings
+    }
+
+    p {
+      margin: 5px 0;
+      color: $accentColor; // Dark text for links
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $activeColor; // White text on hover
+      }
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+
+      &:hover {
+        transform: scale(1.2); // Enlarge icon on hover
+        img {
+          filter: brightness(0) invert(1); // Invert icon color for contrast
+        }
+      }
+    }
+  }
+}
+
+/* main */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.button-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3%;
+  gap: 30px;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.button {
+  background-color: $primaryColor;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1%;
+  gap: 10px;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 130px;
+  height: 110px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.button:hover {
+  background-color: $primaryColorHover;
+}
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+/* Info Section */
+.info-section {
+  background-color: #f9f9f9;
+  border-top: 1px solid $borderColor;
+  padding: 3% 0 !important;
+  text-align: center;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.info-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.text-xxl {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.link {
+  color: $linkColor;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* shared switch component */
+$switch-width: 50px;
+$switch-height: 24px;
+$switch-bg-on: $secondaryColor;
+$switch-bg-off: #ccc;
+$switch-toggle-size: 20px;
+$switch-toggle-bg: white;
+
+.switch {
+  width: $switch-width;
+  height: $switch-height;
+  border-radius: $switch-height;
+  background-color: $switch-bg-off;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &--on {
+    background-color: $switch-bg-on;
+  }
+
+  &__toggle {
+    width: $switch-toggle-size;
+    height: $switch-toggle-size;
+    border-radius: 50%;
+    background-color: $switch-toggle-bg;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    .switch--on & {
+      transform: translateX(calc($switch-width - $switch-toggle-size - 4px));
+    }
+  }
+}
+
+/* shared slider component */
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.2s;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: $secondaryColor;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: $secondaryColor;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+}
+
+/* scroll to top */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background-color: $primaryColor;
+  color: $accentColor;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background-color: $primaryColorHover;
+}
+
+.scroll-to-top svg {
+  font-size: 16px;
+}
+
+/* Custom CSS for small, minimal alerts */
+.small-alert-error {
+  font-size: 14px; /* Adjust font size */
+
+  .swal2-timer-progress-bar {
+    background-color: $error !important; /* Change to your desired color */
+    height: 5px; /* Adjust the height as needed */
+  }
+}
+
+.small-alert-success {
+  font-size: 14px; /* Adjust font size */
+
+  .swal2-timer-progress-bar {
+    background-color: $success !important; /* Change to your desired color */
+    height: 5px; /* Adjust the height as needed */
+  }
+}

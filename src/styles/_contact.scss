@@ -1,0 +1,72 @@
+@use "./global.scss" as var;
+
+.contact-section {
+  background-color: #ffffff;
+  border-bottom: 1px solid var.$borderColor;
+}
+
+.contact-container {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0 30px;
+}
+
+.contact-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contact-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+label {
+  display: block;
+}
+
+.submit-button {
+  width: 140px;
+  margin: auto;
+  background-color: var.$primaryColor;
+  color: var.$accentColor;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var.$primaryColorHover;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 0;
+  }
+
+  .contact-description {
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    font-size: 0.9rem;
+  }
+}
